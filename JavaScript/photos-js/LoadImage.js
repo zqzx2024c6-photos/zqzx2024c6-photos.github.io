@@ -230,7 +230,8 @@ function render_img(){
 		if (image_json[i].MIME == "video/*" && typeof(image_json[i].MIME) != "undefined")
 		{
 			//文件类型是视频
-			try {
+			try {	
+				/*
 				var frame = document.createElement("iframe");
 				//创建一个框架
 				if (typeof frame == "undefined" || frame == null)
@@ -255,7 +256,13 @@ function render_img(){
 				frame.contentWindow.window.name = JSON.stringify({player:"p-player-v1.0",source:btoa(src),encode_method:"base64",load_method:"blob",control:"player-default",volume:100,autoplay:false,currentTime:0});
 				frame.contentWindow.location.href = "https://cdn2021.github.io/p-player/embed-player";
 				//加载播放器
+				*/
+				var ele = document.createElement("video"); //创建一个视频元素
+				ele.src = (GetConfig("cdn")?("https://cdn.jsdelivr.net/gh/" + getTemplate("github_repo") + "/" + image_json[i].ImageId):("https://raw.githubusercontent.com/" + getTemplate("github_repo") + "/" + image_json[i].ImageId));
+				ele.setAttribute("controls","true")
+				document.querySelector("#images").appendChild(ele);
 			} catch (err) {
+				console.error(err);
 				var frame = document.createElement("span");
 				//不支持框架
 				frame.id = "video-" + parseInt(Math.random().toString().substring(3)).toString(16);
