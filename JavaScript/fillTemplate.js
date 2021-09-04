@@ -16,7 +16,10 @@ function fillTemplate(){
 		};
 		var j = 0;
 		while (j < match_strs.length){
-			eles[i].innerHTML = eles[i].innerHTML.replaceAll(match_strs[j],getTemplate(match_strs[j].substring(3,match_strs[j].length-3)));
+			var tmp = getTemplate(match_strs[j].substring(3,match_strs[j].length-3));
+			while (eles[i].innerHTML.indexOf(match_strs[j]) != -1){
+				eles[i].innerHTML = eles[i].innerHTML.replace(match_strs[j],tmp);
+			};
 			j++;
 		};
 		i++;	
