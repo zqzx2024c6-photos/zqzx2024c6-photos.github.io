@@ -138,7 +138,8 @@ setTimeout(function(){
 		window.dsp_api = undefined;
 		DownloadSpeed();
 	},400);
-},2000);
+},10000);
+
 function DownloadSpeed()
 {
 	if (GetConfig("cdn"))
