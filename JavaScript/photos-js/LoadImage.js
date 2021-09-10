@@ -352,9 +352,12 @@ function render_img(){
 					if (argv.status == 200)
 					{ 
 						//请求成功，显示图片
-						var page_width = window.innerWidth?window.innerWidth:document.body.clientWidth;
-						var page_height = window.innerHeight?window.innerHeight:document.body.clientHeight;
+						var page_width = window.first_page_width?window.first_page_width:(window.innerWidth?window.innerWidth:document.body.clientWidth);
+						var page_height = window.first_page_height?window.first_page_height:(window.window.innerHeight?window.innerHeight:document.body.clientHeight);
 						//得到页面大小
+						window.first_page_width = window.first_page_width?window.first_page_width:page_width;
+						window.first_page_height = window.first_page_height?window.first_page_height:page_height;
+						//Save
 						var img = document.createElement("img");
 						img.src = argv.url;
 						img.onload = function(){
