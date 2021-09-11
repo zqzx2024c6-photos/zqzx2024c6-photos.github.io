@@ -431,7 +431,7 @@ function render_img(){
 	copyright.style.color = "yellow";
 	copyright.style["text-align"] = "center";
 	copyright.style.width = "100%";
-	copyright.innerHTML = "<hr><br><br><br>版权所有 <span style='color:black;background:white'>{{ copyright }}</span><br><br>如果你想为这个项目增添一些照片，请向邮箱{{ offical_mail }}发送邮件，并在附件中附加照片，谢谢！<br>照片来自 {{ photos_from }}<br>基于GitHub Pages搭建<br>内容储存服务器 raw.githubusercontent.com<br>全球CDN加速节点 cdn.jsdelivr.net<br>开发语言：HTML(HTML5.0) JavaScript(ECMAScript6) CSS(CSS1.0)<br><br><br>背景图片来自于ESO<br><br><br><span style='font-size:0.3em'>条条大路通川陀，群星尽头，此之谓也</span><br><br><br><br><br>";
+	copyright.innerHTML = "<hr><br><br><br>版权所有 <span style='color:black;background:white'>{{ copyright }}</span><br><br>如果你想为这个项目增添一些照片，请向邮箱{{ offical_mail }}发送邮件，并在附件中附加照片，谢谢！<br>照片来自 {{ photos_from }}<br>基于GitHub Pages搭建<br>内容储存服务器 raw.githubusercontent.com<br>全球CDN加速节点 cdn.jsdelivr.net<br>域名提供商 freenom.com<br>开发语言：HTML(HTML5.0) JavaScript(ECMAScript6) CSS(CSS1.0)<br><br><br>背景图片来自于ESO<br><br><br><span style='font-size:0.3em'>条条大路通川陀，群星尽头，此之谓也</span><br><br><br><br><br>";
 	copyright.id = "copyright";
 	document.getElementById("images").appendChild(copyright);
 
