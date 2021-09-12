@@ -131,7 +131,7 @@ function Display_DownloadSpeed()
 };
 /*
 *实时更新下载速度
-*/
+
 setTimeout(function(){
 	setInterval(function(){
 		window.dsp_cdn = undefined;
@@ -139,7 +139,7 @@ setTimeout(function(){
 		DownloadSpeed();
 	},400);
 },10000);
-
+*/
 function DownloadSpeed()
 {
 	if (GetConfig("cdn"))
