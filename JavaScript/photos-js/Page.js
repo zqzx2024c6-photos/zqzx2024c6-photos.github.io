@@ -370,7 +370,7 @@ function Query_JSON()
 	var query_argument = document.querySelector("#query_value").value;
 	//得到输入
 	location.hash = "page/1";
-	location.search = "query=" + query_argument + "&sort=" + ParseURLArgvment().sort;
+	location.search = "query=" + query_argument + "&sort=" + ParseURLArgvment().sort + "&filter=" + ParseUrlArgvment().filter;
 	
 };
 function download_image()
@@ -384,9 +384,6 @@ function edit_sort_method(){
 	var obj = ParseURLArgvment();
 	obj.sort = sort_method;
 	location.hash = "page/1";
-	if (typeof(obj.query) == "undefined")
-		location.search = "?sort=" + obj.sort;
-	else
-		location.search = "?sort" + obj.sort + "&query=" + obj.query;
+	location.search = "?sort" + obj.sort + "&query=" + obj.query + "&filter=" + obj.filter;
 };
 

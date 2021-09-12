@@ -1,7 +1,7 @@
 // Copyright Hugang Li,Yichen Xu # lihugang@outlook.com xyc_35@163.com
 // Server:GitHub
 // ORIGIN:zqzx2024c6.github.io
-function GetURL(ImageId,callback,clog)
+async function GetURL(ImageId,callback,clog)
 {
   if (typeof clog == "undefined")
     clog = false;
@@ -80,17 +80,20 @@ function GetURL(ImageId,callback,clog)
             {
 	console.log("[Image infomation] SOURCE_URL: " + url + "\nImageId:" + ImageId + "\nSize:%c" + xhr.response.size,"color:red");
               //支持Blob
-              var blob_url = window.URL.createObjectURL(xhr.response);
-              setTimeout(function(){
-                window.URL.revokeObjectURL(blob_url);
-                console.log("[Image infomation] ImageId:" + ImageId + "\nBlob URL:" + blob_url + "\nSource URL:" + url);
-              },3000);
-              callback({status:200,url:blob_url});
-              //返回BlobURL
+			  var filter = ParseURLArgvment().filter || "";
+			  	processImage(xhr.response,filter,function(blob){
+					var blob_url = window.URL.createObjectURL(blob);
+					setTimeout(function(){
+						window.URL.revokeObjectURL(blob_url);
+						console.log("[Image infomation] ImageId:" + ImageId + "\nBlob URL:" + blob_url + "\nSource URL:" + url);
+					},3000);
+					callback({status:200,url:blob_url});
+					//返回BlobURL
+				});
             } else {
-              callback({status:200,url:url});
-              //不支持Blob,返回源URL
-            };
+              	callback({status:200,url:url});
+              	//不支持Blob,返回源URL
+			};
           } else {
             //使用API
           };
@@ -431,7 +434,7 @@ function render_img(){
 	copyright.style.color = "yellow";
 	copyright.style["text-align"] = "center";
 	copyright.style.width = "100%";
-	copyright.innerHTML = "<hr><br><br><br>版权所有 <span style='color:black;background:white'>{{ copyright }}</span><br><br>如果你想为这个项目增添一些照片，请向邮箱{{ offical_mail }}发送邮件，并在附件中附加照片，谢谢！<br>照片来自 {{ photos_from }}<br>基于GitHub Pages搭建<br>内容储存服务器 raw.githubusercontent.com<br>全球CDN加速节点 cdn.jsdelivr.net<br>域名提供商 freenom.com<br>开发语言：HTML(HTML5.0) JavaScript(ECMAScript6) CSS(CSS1.0)<br><br><br>背景图片来自于ESO<br><br><br><span style='font-size:0.3em'>条条大路通川陀，群星尽头，此之谓也</span><br><br><br><br><br>";
+	copyright.innerHTML = "<hr><br><br><br>版权所有 <span style='color:black;background:white'>{{ copyright }}</span><br><br>如果你想为这个项目增添一些照片，请向邮箱{{ offical_mail }}发送邮件，并在附件中附加照片，谢谢！<br>照片来自 {{ photos_from }}<br>基于GitHub Pages搭建<br>内容储存服务器 raw.githubusercontent.com<br>全球CDN加速节点 cdn.jsdelivr.net<br>开发语言：HTML(HTML5.0) JavaScript(ECMAScript6) CSS(CSS1.0)<br><br><br>背景图片来自于ESO<br><br><br><span style='font-size:0.3em'>条条大路通川陀，群星尽头，此之谓也</span><br><br><br><br><br>";
 	copyright.id = "copyright";
 	document.getElementById("images").appendChild(copyright);
 
