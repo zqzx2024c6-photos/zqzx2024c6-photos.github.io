@@ -9,12 +9,13 @@ Photos-Lib-STL
 <meta http-equiv="charset" content="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="expires" content="31 Dec 2008">
-<title>颛桥中学2024届6班合影</title>
+<title>{{ page_title }}</title>
 <script src=JavaScript/fillTemplate.js></script>
-  <script src=JavaScript/photos-js/ProcessImage.js></script>
+<script src=JavaScript/photos-js/ProcessImage.js></script>
 <script src=config/photos.js></script><!-- 模板 初始化 -->
 <script src=JavaScript/photos-js/LoadImage.js></script>
 <script src=JavaScript/photos-js/Page.js></script>
+
 <script src=JavaScript/ParseURLArgvment.js></script>
 
 
@@ -24,17 +25,17 @@ Photos-Lib-STL
 <noscript>
 <p style='font-size:5em;color:red'>您的浏览器不支持JavaScript，请更换浏览器</p>
 </noscript>
-<p style='font-size:3em'>颛桥中学2024届6班合影</p>
+<p style='font-size:3em'>{{ top_letters }}</p>
 <p style='font-size:2em' id=page_num></p>
 <p style='font-size:1.2em'>第一次加载照片时用时较多，请耐心等待<br>图片加载完毕后，会缓存在本地，以提高加载速度</p>
 请选择你的姓名 <select id=query_value>{{ query_html_element }}</select><input type=button onclick=javascript:Query_JSON(); value=查询>
 <p style='font-size:0.8em'>选择你的姓名，可以查询出所有包含你的照片（有可能不准，请见谅）<br>不会真的有人认为是程序识别人脸然后再匹配的吧？实际上是我手动匹配的</p>
 <hr>
-<p style='font-size:1em' id=p.DownloadSpeed>下载速度<font color=red><span id=p.DownloadSpeed.SonNode.JavaScript.Write.Node1></span></font><p style='font-size:1em;text-align:right' id=download_image>{{ open_image_base }}<input type=button value=下载所有图片 onclick=javascript:download_image(); style='width:256px;height:32px'></p><p style='font-size:1em;text-align:right' id=set_sort_method>排序方式<select id=sort_method><option value=later>从晚到早</option><option value=earlier>从早到晚</option></select><input type=button value=确认 onclick=javascript:edit_sort_method();></p></p>
+<p style='font-size:1em' id=p.DownloadSpeed>下载速度<font color=red><span id=p.DownloadSpeed.SonNode.JavaScript.Write.Node1></span></font><p style='font-size:1em;text-align:right' id=download_image>{{ open_image_base }}<input type=button value=下载所有图片 onclick=javascript:download_image(); style='width:256px;height:32px'><br>Git命令<textarea cols=80>git clone https://github.com/zqzx2024c6-photos/zqzx2024c6-image.git</textarea><br><a href=https://git-scm.com/ target=_blank>点我下载Git</a></p><p style='font-size:1em;text-align:right' id=set_sort_method>排序方式<select id=sort_method><option value=later>从晚到早</option><option value=earlier>从早到晚</option></select><input type=button value=确认 onclick=javascript:edit_sort_method();></p></p>
 <hr>
 <div id=images>
 </div>
-<div style='position:fixed;top:0%;right:0%;color:black;background:skyblue;border: 5px outset #98bf21;padding:3px;display:none' id=settings></div>
+<div style='position:fixed;top:0%;right:0%;color:black;background:skyblue;border: 5px outset #98bf21;padding:3px' id=settings></div>
 <div style='position:fixed;bottom:0%;width:100%;color:black;background:skyblue;border: 5px outset #98bf21;padding:3px;text-align:center;' id=tool><input type=button id=back_button value=上一页 onclick=javascript:back_page();>   第<span id=page_num2></span>页   <input type=button id=next_button value=下一页 onclick=javascript:next_page();></div>
 </div>
 
